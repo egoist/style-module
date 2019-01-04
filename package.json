@@ -1,6 +1,6 @@
 {
   "name": "style-module",
-  "version": "0.1.0",
+  "version": "0.0.0-managed-by-semantic-release",
   "description": "CSS modules in JS.",
   "main": "dist/style-module.js",
   "module": "dist/style-module.mjs",
