@@ -50,7 +50,11 @@
     }
   },
   "lint-staged": {
-    "{src,test}/**/*.{ts,js,json,md}": [
+    "{src,test}/**/*.{ts,js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{json,md}": [
       "prettier --write",
       "git add"
     ],

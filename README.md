@@ -105,6 +105,27 @@ Notes:
 - `composes` currently only works at the top level.
 - It's possible to compose multiple classes with <code>composes: &#x60;${classNameA} ${classNameB}&#x60;</code>
 
+### Keyframes
+
+Check out the live demo on [CodePan](https://codepan.net/gist/3d965f020974fdbbc3aaaacf8c7cefda).
+
+```js
+import { css, keyframes } from 'style-module'
+
+const zoom = keyframes({
+  from: {
+    transform: 'scale(0.5)'
+  },
+  to: {
+    transform: 'scale(2)'
+  },
+})
+
+const className = css({
+  animation: `${zoom} 300ms infinite`
+})
+```
+
 ## API
 
 ### css
