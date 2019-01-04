@@ -1,4 +1,4 @@
-# style-module <sup><img src="https://version-badge.egoist.sh/text?text=beta"></sup>
+# style-module <sup><img src="https://version-badge.egoist.sh/text?text=less%20than%201kb"></sup>
 
 [![NPM version](https://badgen.net/npm/v/style-module)](https://npmjs.com/package/style-module) [![NPM downloads](https://badgen.net/npm/dm/style-module)](https://npmjs.com/package/style-module) [![CircleCI](https://badgen.net/circleci/github/egoist/style-module/master)](https://circleci.com/gh/egoist/style-module/tree/master) [![donate](https://badgen.net/badge/support%20me/donate/ff69b4)](https://patreon.com/egoist) [![chat](https://badgen.net/badge/chat%20on/discord/7289DA)](https://chat.egoist.moe)
 
