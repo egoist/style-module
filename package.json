@@ -1,0 +1,59 @@
+{
+  "name": "style-module",
+  "version": "0.0.0",
+  "description": "Like CSS modules but in JS.",
+  "main": "dist/style-module.js",
+  "module": "dist/style-module.mjs",
+  "production:main": "dist/style-module.min.js",
+  "production:module": "dist/style-module.min.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "jest -i",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "url": "egoist/style-module",
+    "type": "git"
+  },
+  "author": "egoist<0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^23.3.11",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.15.2",
+    "rollup": "^1.0.1",
+    "rollup-plugin-terser": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.18.1",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branch": "master"
+  }
+}

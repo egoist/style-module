@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`css composes 1`] = `".sm_0 {color: black;}.sm_1 {color: red;}"`;
+
+exports[`css simple 1`] = `".sm_0 {color: red; font-size: 16px;}.sm_0:hover {color: blue;}.sm_0 .foo {color: yellow;}"`;
+
+exports[`styleModule 1`] = `".sm_0 {color: red; font-size: 16px;}.sm_0:hover {color: blue;}.sm_0 .foo {color: yellow;}"`;
