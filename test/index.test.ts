@@ -42,6 +42,19 @@ describe('css', () => {
     expect(className).toBe('sm_0 sm_1')
     expect(getStyle()).toMatchSnapshot()
   })
+
+  // test('nesting', () => {
+  //   const className = css({
+  //     '& .button': {
+  //       color: 'pink',
+  //       ':hover': {
+  //         color: 'red'
+  //       }
+  //     }
+  //   })
+  //   expect(className).toBe('sm_0')
+  //   expect(getStyle()).toMatchSnapshot()
+  // })
 })
 
 test('styleModule', () => {
