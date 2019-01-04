@@ -1,7 +1,7 @@
 {
   "name": "style-module",
   "version": "0.0.0",
-  "description": "Like CSS modules but in JS.",
+  "description": "CSS modules in JS.",
   "main": "dist/style-module.js",
   "module": "dist/style-module.mjs",
   "production:main": "dist/style-module.min.js",
