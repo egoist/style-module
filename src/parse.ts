@@ -12,13 +12,11 @@ function wrap(stringToWrap: string, wrapper: string) {
 
 function parse(obj: RuleObj, className: string, isInsideObj = false) {
   const rules = ['']
-  let composes
 
   for (let prop of Object.keys(obj)) {
     let value = obj[prop]
 
-    if (prop === 'composes' && typeof value === 'string') {
-      composes = value
+    if (prop === 'composes') {
       continue
     }
 
@@ -30,7 +28,7 @@ function parse(obj: RuleObj, className: string, isInsideObj = false) {
       // replace & in "&:hover", "p>&"
       prop = prop.replace(/&/g, className)
       const res = parse(value, className, !/^@/.test(prop))
-      rules.push(wrap(res.rules.join(''), prop))
+      rules.push(wrap(res.join(''), prop))
     } else {
       rules[0] += `${prop}:${value};`
     }
@@ -38,10 +36,11 @@ function parse(obj: RuleObj, className: string, isInsideObj = false) {
   if (!isInsideObj) {
     rules[0] = wrap(rules[0], className)
   }
-  return { rules, composes }
+  return rules
 }
 
 export {
   RuleObj,
-  parse
+  parse,
+  wrap
 }

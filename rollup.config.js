@@ -1,4 +1,4 @@
-const createConfig = ({ format, minify, types }) => {
+const createConfig = ({ format, minify }) => {
   let ext = format === 'cjs' ? '.cjs.js' : format === 'es' ? '.mjs' : '.js'
   if (minify) {
     ext = ext.replace(/\.([a-z]+)$/, '.min.$1')
@@ -11,12 +11,12 @@ const createConfig = ({ format, minify, types }) => {
       name: 'styleModule'
     },
     plugins: [
-      require('rollup-plugin-typescript2')({
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: types && true
-          }
-        }
+      require('rollup-plugin-alias')({
+        resolve: ['.ts', '.js'],
+        './sheet/server': './sheet/browser'
+      }),
+      require('rollup-plugin-typescript')({
+        declaration: false
       }),
       minify && require('rollup-plugin-terser').terser()
     ].filter(Boolean)
@@ -24,10 +24,6 @@ const createConfig = ({ format, minify, types }) => {
 }
 
 export default [
-  createConfig({ format: 'es', types: true }),
-  createConfig({ format: 'cjs' }),
   createConfig({ format: 'umd' }),
-  createConfig({ format: 'es', minify: true }),
-  createConfig({ format: 'cjs', minify: true }),
   createConfig({ format: 'umd', minify: true })
 ]

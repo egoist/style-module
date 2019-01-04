@@ -3,16 +3,21 @@
   "version": "0.0.0-managed-by-semantic-release",
   "description": "CSS modules in JS.",
   "main": "dist/style-module.js",
-  "module": "dist/style-module.mjs",
-  "production:main": "dist/style-module.min.js",
-  "production:module": "dist/style-module.min.mjs",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
+  "browser": {
+    "./sheet/server": "./sheet/browser"
+  },
   "scripts": {
     "test": "npm run test:unit",
     "test:unit": "jest -i",
-    "build": "rollup -c",
+    "build": "npm run build:umd && npm run build:es",
+    "build:umd": "rollup -c",
+    "build:es": "tsc",
     "prepublishOnly": "npm run build",
     "commit": "git-cz"
   },
@@ -32,8 +37,9 @@
     "lint-staged": "^7.2.0",
     "prettier": "^1.15.2",
     "rollup": "^1.0.1",
+    "rollup-plugin-alias": "^1.5.1",
     "rollup-plugin-terser": "^4.0.1",
-    "rollup-plugin-typescript2": "^0.18.1",
+    "rollup-plugin-typescript": "^1.0.0",
     "semantic-release": "^15.13.2",
     "ts-jest": "^23.10.5",
     "typescript": "^3.2.2"

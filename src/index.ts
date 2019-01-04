@@ -1,11 +1,12 @@
-import { parse, RuleObj } from './parse'
+import createSheet from './sheet/server'
+import { parse, RuleObj, wrap } from './parse'
 
-let _id: number
-let sheet: StyleSheet | null
+let _id = 0
+let sheet = createSheet()
 
 function reset() {
   _id = 0
-  sheet = document.head.appendChild(document.createElement('style')).sheet
+  sheet = createSheet()
 }
 
 reset()
@@ -18,12 +19,12 @@ function insert(rule: string) {
 
 function css(obj: RuleObj) {
   const id = `sm_${_id++}`
-  const { rules, composes } = parse(obj, `.${id}`)
+  const rules = parse(obj, `.${id}`)
   for (const rule of rules) {
     insert(rule)
   }
-  if (composes) {
-    return `${composes} ${id}`
+  if (obj.composes) {
+    return `${obj.composes} ${id}`
   }
   return id
 }
@@ -46,4 +47,10 @@ function styleModule(
   }, {})
 }
 
-export { css, styleModule, sheet, reset }
+function keyframes(obj: { [k: string]: { [k: string]: any } }) {
+  const id = `sm_${_id++}`
+  insert(wrap(parse(obj, id, true).join(''), '@keyframes ' + id))
+  return id
+}
+
+export { css, styleModule, sheet, reset, keyframes }
