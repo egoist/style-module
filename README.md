@@ -30,7 +30,7 @@ npm i style-module
 <details><summary>Use ESM bundle from CDN</summary>
 
 ```html
-<script module>
+<script type="module">
   import { styleModule } from 'https://unpkg.com/style-module?module'
 
   const styles = styleModule({
