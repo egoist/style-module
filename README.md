@@ -45,6 +45,8 @@ npm i style-module
 
 ## Usage
 
+Check out the live demo on [CodePan](https://codepan.net/gist/bfcdf733f6099fff24080d039569c9aa).
+
 ```js
 import { styleModule } from 'style-module'
 
