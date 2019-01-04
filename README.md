@@ -118,7 +118,7 @@ const zoom = keyframes({
   },
   to: {
     transform: 'scale(2)'
-  },
+  }
 })
 
 const className = css({
@@ -165,6 +165,10 @@ styles.button //=> .sm_0
 ```
 
 `styleModule` is just a short-hand for generating multiple class names at once, internally it calls `css` function too.
+
+### keyframes
+
+Create a `@keyframes` rule, you should pass in the definition of the rule and it returns the name.
 
 ## TODO
 
