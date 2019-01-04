@@ -100,6 +100,11 @@ const primaryButton = css({
 })
 ```
 
+Notes:
+
+- `composes` currently only works at the top level.
+- It's possible to compose multiple classes with <code>composes: &#x60;${classNameA} ${classNameB}&#x60;</code>
+
 ## API
 
 ### css
